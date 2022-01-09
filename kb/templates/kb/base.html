@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% if title %}
+    <title>
+        KB - {{title}}
+    </title>
+    {% else %}
+    <title>
+        KB 
+    </title>
+    {% endif %}
+</head>
+
+<body>
+    {% block content %}{% enblock content %}
+</body>
+
+</html>

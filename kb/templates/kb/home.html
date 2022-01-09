@@ -1,0 +1,18 @@
+{% extends "kb/base.html" %}
+    {% block content %}
+        <h1> Knowledge base -  Home page</h1>
+        {% for article in articles %}
+        <h3>
+        {{article.title}}
+        </h3>
+        <p>
+            by {{artcile.author}}
+        </p>
+        <p>
+            Posted at {{article.date}}
+        </p>
+        <h4>
+            {{article.content}}
+        </h4>
+    {% endfor %}
+{% endblock content %}
