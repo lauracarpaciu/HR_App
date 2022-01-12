@@ -1,0 +1,23 @@
+{% extends 'kb/base.html' %}
+
+{% block content %}
+<div class="container">
+    <form method='POST'>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="text-muted border-bottom">
+                Log In
+            </legend>
+            {{ form.as_p }}
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-info">Log In</button>
+        </div>
+    </form>
+    <div class="border-top">
+        <small class="text-muted">
+            Do you want to register? <a href="{% url 'users-register' %}">Sign up</a>
+        </small>
+    </div>
+</div>   
+{% endblock %}

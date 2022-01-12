@@ -1,0 +1,14 @@
+{% extends 'kb/base.html' %}
+
+{% block content %}
+<div class="container">
+    <legend class="text-muted border-bottom">
+                You have been logged out
+    </legend>
+    <div class="border-top">
+        <small class="text-muted">
+            <a href="{% url 'users-login' %}">Log in</a>
+        </small>
+    </div>
+</div>   
+{% endblock %}
