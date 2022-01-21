@@ -1,13 +1,32 @@
 from django.shortcuts import render
-from .models import Regions
+from .models import Countrie, Department, Employee, Job_History, Job, Location, Region
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
-    context = {'title': 'Articles', 'articles': Regions.objects.all()}
+    regions_list = Region.objects.all()
+    countries_list = Countrie.objects.all()
+    locations_list = Location.objects.all()
+    departments_list = Department.objects.all()
+    employees_list = Employee.objects.all()
+    jobs_list = Job.objects.all()
+    job_history_list = Job_History
+    
+    context = {
+        'title': 'Articles',
+        'regions_list': regions_list,
+        'countries_list': countries_list,
+        'locations_list': locations_list,
+        'departments_list': departments_list,
+        'employees_list': employees_list,
+        'jobs_list': jobs_list,
+        'job_history_list': job_history_list
+    }
+    
     return render(request, 'kb/home.html', context)
+
 
 
 def about(request):
@@ -17,7 +36,7 @@ def about(request):
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
-    model = Regions
+    model = Region
     fields = ['region_name']
     success_url = reverse_lazy('kb-home')
 
