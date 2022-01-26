@@ -35,11 +35,14 @@ def about(request):
     return render(request, 'kb/about.html', context)
 
 
+
 class ArticleCreateView(LoginRequiredMixin, CreateView):
-    model = Region
-    fields = ['region_name']
+    model = Employee
+    fields = ['first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
     success_url = reverse_lazy('kb-home')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+

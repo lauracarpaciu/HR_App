@@ -1,16 +1,18 @@
 {% extends "kb/base.html" %}
 
 {% block content %}
-<!-- <h1>Knowledge base - Home page</h1> -->
-{% for article in articles %}
+<!-- <h1>HR Database - Home page</h1> -->
+{% for article in employees_list %}
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
-      <a class="me-2" href="#">{{ article.author }}</a>
-      <small class="text-muted">{{ article.date }}</small>
+      <a class="text-muted"  href="#">{{ article.first_name }}</a>
+      <small class="text-muted">{{ article.last_name }}</small>
     </div>
-    <h2><a class="article-title" href="#">{{ article.title }}</a></h2>
-    <p class="article-content">{{ article.content }}</p>
+    <h2><a class="article-title" href="#">{{ article.email }}</a></h2>
+    <h2><a class="article-title" href="#">{{ article.departments }}</a></h2>
+    <h2><a class="article-title" href="#">{{ article.jobs }}</a></h2>
+    <p class="article-content">{{ article.hire_date }}</p>
   </div>
 </article>
 {% endfor %}

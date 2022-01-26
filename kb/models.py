@@ -66,7 +66,7 @@ class Employee(models.Model):
     salary = models.IntegerField()
     commission_pct = models.IntegerField()
     departments = models.ForeignKey(Department,on_delete=models.CASCADE)
-    jobs = models.ForeignKey(Job,on_delete=models.CASCADE)
+    jobs= models.ForeignKey(Job,on_delete=models.CASCADE)
 
 def __str__(self):
         return "%s %s" % (self.first_name, self.last_name)       
