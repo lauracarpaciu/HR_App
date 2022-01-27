@@ -1,6 +1,6 @@
 body {
 	background: #fafafa;
-	color: #c03838;
+	color: hsl(78, 61%, 42%);
 	margin-top: 4rem;
 }
 
@@ -10,14 +10,14 @@ h3,
 h4,
 h5,
 h6 {
-	color: #4e0606;
+	color: #ced111;
 }
 
 ul {
 	margin: 0;
 }
 .bg-darkgrey{
-    background-color: #16851f;
+    background-color: #a3c414;
 }
 .bg-magenta {
     background-color: #b55086;
@@ -52,7 +52,7 @@ ul {
 }
 
 a.article-title:hover {
-	color: #04330c;
+	color: #b8ca17;
 	text-decoration: none;
 }
 
