@@ -1,5 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.urls import reverse
+from django.conf import settings
+import os
 # Create your models here.
 
 class Region(models.Model):
@@ -58,6 +62,8 @@ class Job(models.Model):
         ordering = ['job_title'] 
 
 class Employee(models.Model):
+    date_posted = models.DateTimeField(default=timezone.now)
+    file = models.FileField(null=True,blank=True,upload_to='Files')
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=25)
     email = models.EmailField()
@@ -67,10 +73,21 @@ class Employee(models.Model):
     commission_pct = models.IntegerField()
     departments = models.ForeignKey(Department,on_delete=models.CASCADE)
     jobs= models.ForeignKey(Job,on_delete=models.CASCADE)
+    content = models.TextField(null=True,blank=True)
+   
+    def extension(self):
+        pass
 
-def __str__(self):
+
+    def get_absolute_url(self):
+        pass
+    
+    def __str__(self):
+
         return "%s %s" % (self.first_name, self.last_name)       
     
+
+
 
 class Job_History(models.Model):
     jobs = models.ForeignKey(Job, on_delete=models.CASCADE)
@@ -85,3 +102,14 @@ class Job_History(models.Model):
     class Meta:
         ordering = ['start_date']   
 
+# class Comment(models.Model):
+#     article = models.ForeignKey(Employee,on_delete=models.CASCADE, related_name='comments', )
+#     comment = models.CharField(max_length=140)
+#     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE),
+ 
+#     def __str__(self):
+#         return self.comment
+ 
+ 
+#     def get_absolute_url(self):
+#         return reverse('article_list') 

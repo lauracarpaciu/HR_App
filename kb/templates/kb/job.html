@@ -1,0 +1,19 @@
+{% extends "kb/base.html" %}
+
+{% block content %}
+<!-- <h1>HR Database - Home page</h1> -->
+{% for article in job_history_list %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="text-muted" href="#">{{ article.jobs }}</a>
+      <small class="text-muted">{{ article.departments }}</small>
+    </div>
+    <h6><a class="article-title" href="#">{{ article.employees }}</a></h6>
+    <h6><a class="article-title" href="#">{{ article.start_date }}</a></h6>
+    <h6><a class="article-title" href="#">{{ article.end_date }}</a></h6>
+    <!-- <p class="article-content">{{ article.hire_date }}</p>
+  </div>
+</article>
+{% endfor %}
+{% endblock content %}

@@ -39,9 +39,18 @@
               <a class="nav-link active" href="{% url 'new-article' %}">Add article</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'users-logout' %}">Logout</a>
+              <a class="nav-link active" href="{% url 'article' %}">Add</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'user-posts' user %}" class="btn text-white m-2"><i class="fas fa-user-shield"></i> My Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'post-create' %}">New Post</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'users-logout' %}">Logout</a>
+            </li>
             {% else %}
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'users-login' %}">Login</a>
@@ -96,11 +105,15 @@
               <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
                   Menținerea unui nivel ridicat de implicare a angajaților, principala provocare din HR în 2020 </div>
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">2021 din perspectiva unui robot de recrutare
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">2021
+                  din perspectiva unui robot de recrutare
                 </div>
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">5 abilități esențiale pentru succes profesional în 2020
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">5
+                  abilități esențiale pentru succes profesional în 2020
                 </div>
-                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">90% dintre angajații români cu vârste între 25 și 45 ani consideră ca brandul personal îi ajută să obțină un job mai bun
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">90%
+                  dintre angajații români cu vârste între 25 și 45 ani consideră ca brandul personal îi ajută să obțină
+                  un job mai bun
                 </div>
               </div>
             </div>
