@@ -36,13 +36,8 @@
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'new-article' %}">Add article</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'article' %}">Add</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'user-posts' user %}" class="btn text-white m-2"><i class="fas fa-user-shield"></i> My Post</a>
+              <a href="{% url 'user-posts' user %}" class="btn text-white m-2"><i class="fas fa-user-shield"></i> My
+                Post</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'post-create' %}">New Post</a>

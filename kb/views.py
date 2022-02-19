@@ -34,16 +34,6 @@ def home(request):
     
     return render(request, 'kb/home.html', context)
 
-# def job(request):
-#     job_history_list = Job_History.objects.all()
-    
-#     context = {
-#         'title': 'Articles',
-#         'job_history_list': job_history_list
-#     }
-    
-#     return render(request, 'kb/job.html', context)
-
 def search(request):
     template='kb/home.html'
 
@@ -58,16 +48,6 @@ def about(request):
     # return HttpResponse('<h1> About knowledge base</h1>')
     context = {'title': 'About KB'}
     return render(request, 'kb/about.html', context)
-
-def search(request):
-    template='kb/home.html'
-
-    query=request.GET.get('q')
-
-    result=Employee.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
-    paginate_by=2
-    context={ 'posts':result }
-    return render(request,template,context)
 
 
 class ArticleListView(ListView):
@@ -92,7 +72,7 @@ class ArticleDetailView(DetailView):
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Employee
     fields = ['first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
-    success_url = reverse_lazy('kb-home')
+    success_url = reverse_lazy('post-create')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -102,7 +82,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Employee
     fields = ['first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
-    success_url = reverse_lazy('kb-home')
+    success_url = reverse_lazy('post-update')
 
     def test_func(self):
         post = self.get_object()

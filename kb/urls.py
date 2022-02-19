@@ -16,8 +16,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='kb-home'),
     path('about/', views.about, name='kb-about'),
-    path('article/new/', ArticleCreateView.as_view(), name = 'new-article'),
-    path('article', ArticleCreateView.as_view(), name = 'article'),
     path('', ArticleListView.as_view(), name='kb-home'),
     path('user/<str:username>', UserArticleListView.as_view(), name='user-posts'),
     path('post/<int:pk>/', ArticleDetailView.as_view(), name='post-detail'),
