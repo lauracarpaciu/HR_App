@@ -14,8 +14,7 @@ from .views import (
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='kb-home'),
-    path('about/', views.about, name='kb-about'),
+
     path('', ArticleListView.as_view(), name='kb-home'),
     path('user/<str:username>', UserArticleListView.as_view(), name='user-posts'),
     path('post/<int:pk>/', ArticleDetailView.as_view(), name='post-detail'),
@@ -24,5 +23,6 @@ urlpatterns = [
     path('post/<int:pk>/delete/', ArticleDeleteView.as_view(), name='post-delete'),
     path('media/Files/<int:pk>',ArticleDeleteView.as_view(),name='post-delete' ),
     path('search/',views.search,name='search' ),
-  
+    path('about/', views.about, name='kb-about'),
+    path('', views.home, name='kb-home'),
 ]

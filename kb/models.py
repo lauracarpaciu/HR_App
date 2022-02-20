@@ -61,9 +61,10 @@ class Job(models.Model):
     class Meta:
         ordering = ['job_title'] 
 
+from django.urls import reverse
+
 class Employee(models.Model):
-    date_posted = models.DateTimeField(default=timezone.now)
-    file = models.FileField(null=True,blank=True,upload_to='Files')
+    author =models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=25)
     email = models.EmailField()
@@ -74,17 +75,20 @@ class Employee(models.Model):
     departments = models.ForeignKey(Department,on_delete=models.CASCADE)
     jobs= models.ForeignKey(Job,on_delete=models.CASCADE)
     content = models.TextField(null=True,blank=True)
-   
+    date_posted = models.DateTimeField(default=timezone.now)
+    file = models.FileField(null=True,blank=True,upload_to='Files')
+
+
     def extension(self):
-        pass
+        name,extension = os.path.splitext(self.file.name)
+        return extension
 
-
-    def get_absolute_url(self):
-        pass
-    
     def __str__(self):
 
-        return "%s %s" % (self.first_name, self.last_name)       
+        return "%s %s" % (self.first_name, self.last_name)
+
+    def get_absolute_url(self):
+        return reverse('post-detail',kwargs={'pk':self.pk})           
     
 
 

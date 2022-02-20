@@ -34,9 +34,10 @@
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'kb-about' %}">About</a>
             </li>
+
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a href="{% url 'user-posts' user %}" class="btn text-white m-2"><i class="fas fa-user-shield"></i> My
+              <a class="nav-link active" href="{% url 'user-posts' user %}"><i class="fas fa-user-shield"></i> My
                 Post</a>
             </li>
             <li class="nav-item">
@@ -69,9 +70,11 @@
                     <a class="nav-link disabled">Disabled</a>
                   </li> -->
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light" type="submit">Search</button>
+          <!------{{ request.get_host }}/blog/search/-->
+          <form id="searchform" action="{% url 'search' %}" method="get">
+            <input type="text" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search Here..." />
+            <button type="button" onclick="searchform.submit()" class=" text-white my-color btn-primary"><i
+                class="fa fa-search"></i></button>
           </form>
         </div>
       </div>

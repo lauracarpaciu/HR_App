@@ -34,6 +34,7 @@ def home(request):
     
     return render(request, 'kb/home.html', context)
 
+
 def search(request):
     template='kb/home.html'
 
@@ -44,6 +45,7 @@ def search(request):
     context={ 'posts':result }
     return render(request,template,context)
 
+
 def about(request):
     # return HttpResponse('<h1> About knowledge base</h1>')
     context = {'title': 'About KB'}
@@ -51,7 +53,11 @@ def about(request):
 
 
 class ArticleListView(ListView):
-    pass
+    model = Employee
+    template_name = 'kb/home.html'  
+    context_object_name = 'employees_list'
+    ordering = ['-date_posted']
+    paginate_by = 2
 
 class UserArticleListView(ListView):
     model = Employee
@@ -71,7 +77,7 @@ class ArticleDetailView(DetailView):
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Employee
-    fields = ['first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
+    fields = ['date_posted','content','file','first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
     success_url = reverse_lazy('post-create')
 
     def form_valid(self, form):
@@ -93,8 +99,8 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Employee
-    success_url = '/'
-    template_name = 'kb/confirm_delete.html'
+    success_url = 'post-delete'
+    template_name = 'kb/post_confirm_delete.html'
 
     def test_func(self):
         post = self.get_object()
