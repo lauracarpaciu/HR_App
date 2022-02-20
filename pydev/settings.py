@@ -128,3 +128,8 @@ LOGIN_REDIRECT_URL = 'kb-home'
 
 LOGIN_URL = 'users-login'
 
+STATIC_URL = ''
+import os
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+

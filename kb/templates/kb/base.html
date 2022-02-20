@@ -43,9 +43,11 @@
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'post-create' %}">New Post</a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'users-logout' %}">Logout</a>
+              <a href="{% url 'profile' %} " class="btn text-white m-2"><i class="fas fa-user"></i> {{ user.username }}</a>
+            <li class="nav-item">
+            </li>
+                 <a class="nav-link active" href="{% url 'users-logout' %}">Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
