@@ -11,12 +11,12 @@
               <small class="text-muted">{{ post.date_upload|date:"F d, Y" }}</small>
           </div>
           {% if post.file %}
-          <a href="{{ post.file.url }}"  download class="text-dark text-justify "><h5>{{ post.blog }}</h5></a>
+          <a href="{{ post.file.url }}"  download class="text-dark text-justify "><h5>{{ post.kb }}</h5></a>
           {% endif %}
      
       
      
-          <h2><a class="article-title text-justify " href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+          <h2><a class="article-title text-justify " href="{% url 'post-detail' post.id %}">{{ post.first_name }}</a></h2>
           <div class="d-flex justify-content-between">
             <p class="article-content text-justify text-truncate overflow-hidden">{{ post.content }}</p>
             {% if post.file %}

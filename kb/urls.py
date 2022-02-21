@@ -24,5 +24,4 @@ urlpatterns = [
     path('media/Files/<int:pk>',ArticleDeleteView.as_view(),name='post-delete' ),
     path('search/',views.search,name='search' ),
     path('about/', views.about, name='kb-about'),
-    path('', views.home, name='kb-home'),
-]
+    ]

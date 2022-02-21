@@ -87,7 +87,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Employee
-    fields = ['first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
+    fields = ['date_posted','content','file','first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
     success_url = reverse_lazy('post-update')
 
     def test_func(self):
