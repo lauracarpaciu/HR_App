@@ -18,3 +18,11 @@ Technologies Used:
     Pillow
 
 ![image](https://user-images.githubusercontent.com/30430563/154931125-70fa0e05-72ea-4013-a6b4-aa739bd7b80a.png)
+
+![image](https://user-images.githubusercontent.com/30430563/154931312-1985192d-6912-491c-9167-11521872b404.png)
+
+![image](https://user-images.githubusercontent.com/30430563/154931434-cebccbe9-74cb-4cdb-a17e-024ab14399ca.png)
+
+![image](https://user-images.githubusercontent.com/30430563/154931503-4a484272-0a52-4b21-bf13-309c235443f8.png)
+
+
