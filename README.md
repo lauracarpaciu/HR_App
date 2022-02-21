@@ -8,3 +8,12 @@ Information about your managers.
 Information about your job_history and job_grades.
 
 Employee management systems are useful for running a smooth organization, especially organizations of scale. It assists HR personnel to keep track of employee information such as salary details, attendance/leave records, overall performance and more.
+
+Technologies Used:
+    Python
+    Django
+    Bootstrap
+    JavaScript
+    django-crispy-forms
+    Pillow
+
