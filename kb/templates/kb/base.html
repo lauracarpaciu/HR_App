@@ -47,7 +47,7 @@
               <a href="{% url 'profile' %} " class="nav-link active"><i class="fas fa-user"></i> {{ user.username }}</a>
             <li class="nav-item">
             </li>
-                 <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
@@ -57,25 +57,12 @@
               <a href="{% url 'register' %} " class="nav-link active"> <i class="fas fa-sign-in-alt"></i> Sign Up</a>
             </li>
             {% endif %}
-            <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                  </li> -->
+
           </ul>
           <!------{{ request.get_host }}/blog/search/-->
           <form id="searchform" action="{% url 'search' %}" method="get">
             <input type="text" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search Here..." />
-            <button type="button" onclick="searchform.submit()" class=" text-white my-color btn-primary"><i
+            <button type="button" onclick="searchform.submit()" class="btn btn-primary" ><i
                 class="fa fa-search"></i></button>
           </form>
         </div>
