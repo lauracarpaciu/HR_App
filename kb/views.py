@@ -40,7 +40,7 @@ def search(request):
 
     query=request.GET.get('q')
 
-    result=Employee.objects.filter(Q(title__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
+    result=Employee.objects.filter(Q(first_name__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query))
     paginate_by=2
     context={ 'posts':result }
     return render(request,template,context)
