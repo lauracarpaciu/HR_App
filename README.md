@@ -1,4 +1,3 @@
-![Opera Snapshot_2022-02-22_084959_127 0 0 1](https://user-images.githubusercontent.com/30430563/155078144-e6d79bb8-ce49-4044-8c46-5cd9881741ff.png)
 #What is an HR database?
 You can view it as the central hub for all of your employee data. Human resources professionals use the software to store the information about staff.
 
