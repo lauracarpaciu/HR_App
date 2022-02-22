@@ -63,17 +63,9 @@ class Job(models.Model):
 
 from django.urls import reverse
 
-from django.contrib.auth import get_user_model
-User = get_user_model()
-class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField()
-
-    def __str__(self):
-        return self.user.username
 
 class Employee(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE) # new
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=25)
     email = models.EmailField()
