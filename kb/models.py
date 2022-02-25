@@ -75,7 +75,7 @@ class Employee(models.Model):
     content = models.TextField(null=True,blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     file = models.FileField(null=True,blank=True,upload_to='Files')
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE) 
+    author = models.ForeignKey(User, on_delete=models.CASCADE) 
     departments = models.ForeignKey(Department,on_delete=models.CASCADE)
     jobs= models.ForeignKey(Job,on_delete=models.CASCADE)
 

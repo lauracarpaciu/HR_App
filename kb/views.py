@@ -40,7 +40,7 @@ def home(request):
 def search(request):
     template='kb/home.html'
     query=request.GET.get('q')
-    result=Employee.objects.filter(Q(salary__icontains=query) | Q(created_by__username__icontains=query) | Q(content__icontains=query))
+    result=Employee.objects.filter(Q(salary__icontains=query) | Q(author__icontains=query) | Q(content__icontains=query))
     paginate_by=2
     context={ 'employees_list':result }
     return render(request,template,context)
@@ -70,7 +70,7 @@ class UserEmployeeListView(ListView):
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs['username'])
-        return Employee.objects.filter(created_by=user).order_by('-date_posted')
+        return Employee.objects.filter(author=user).order_by('-date_posted')
 
 class EmployeeDetailView(DetailView):
     model = Employee
@@ -90,7 +90,7 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('post-create')
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
 
@@ -100,12 +100,12 @@ class EmployeeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     success_url = reverse_lazy('post-update')
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user == post.created_by:
+        if self.request.user == post.author:
             return True
         return False
 
@@ -117,7 +117,7 @@ class EmployeeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user == post.created_by:
+        if self.request.user == post.author:
             return True
         return False       
 
