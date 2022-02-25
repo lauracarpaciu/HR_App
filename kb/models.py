@@ -65,7 +65,6 @@ from django.urls import reverse
 
 
 class Employee(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE) # new
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=25)
     email = models.EmailField()
@@ -73,26 +72,26 @@ class Employee(models.Model):
     hire_date = models.DateField()
     salary = models.IntegerField()
     commission_pct = models.IntegerField()
-    departments = models.ForeignKey(Department,on_delete=models.CASCADE)
-    jobs= models.ForeignKey(Job,on_delete=models.CASCADE)
     content = models.TextField(null=True,blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     file = models.FileField(null=True,blank=True,upload_to='Files')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE) 
+    departments = models.ForeignKey(Department,on_delete=models.CASCADE)
+    jobs= models.ForeignKey(Job,on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ["-first_name"]
+
+    def __str__(self):
+        return self.first_name
 
     def extension(self):
         name,extension = os.path.splitext(self.file.name)
         return extension
 
-    def __str__(self):
-
-        return "%s %s" % (self.first_name, self.last_name)
-
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'pk':self.pk})           
-    
-
-
+   
 
 class Job_History(models.Model):
     jobs = models.ForeignKey(Job, on_delete=models.CASCADE)

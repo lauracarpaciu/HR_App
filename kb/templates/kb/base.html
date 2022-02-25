@@ -43,9 +43,6 @@
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'post-create' %}">New Post</a>
             </li>
-            <li class="nav-item">
-              <a href="{% url 'profile' %} " class="nav-link active"><i class="fas fa-user"></i> {{ user.username }}</a>
-            <li class="nav-item">
             </li>
             <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
             </li>
@@ -62,7 +59,7 @@
           <!------{{ request.get_host }}/blog/search/-->
           <form id="searchform" action="{% url 'search' %}" method="get">
             <input type="text" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search Here..." />
-            <button type="button" onclick="searchform.submit()" class="btn btn-primary" ><i
+            <button type="button" onclick="searchform.submit()" class="btn btn-primary"><i
                 class="fa fa-search"></i></button>
           </form>
         </div>
