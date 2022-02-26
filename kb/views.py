@@ -1,12 +1,12 @@
 from datetime import timezone
-from django.http import HttpRequest
-from django.shortcuts import render,get_object_or_404
 from .models import Countrie, Department, Employee, Job_History, Job, Location, Region
+from django.shortcuts import render,get_object_or_404
 from django.urls import reverse_lazy
+from django.contrib.staticfiles.views import serve
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
-from django.contrib.staticfiles.views import serve
+
 from django.views.generic import (
     ListView,
     DetailView,
@@ -40,7 +40,7 @@ def home(request):
 def search(request):
     template='kb/home.html'
     query=request.GET.get('q')
-    result=Employee.objects.filter(Q(salary__icontains=query) | Q(author__icontains=query) | Q(content__icontains=query))
+    result=Employee.objects.filter(Q(last_name__icontains=query) | Q(author__username__icontains=query) | Q(content__icontains=query)| Q(first_name__icontains=query))
     paginate_by=2
     context={ 'employees_list':result }
     return render(request,template,context)

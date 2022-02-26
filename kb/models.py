@@ -1,9 +1,9 @@
+import os
 from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.conf import settings
-import os
+from django.utils import timezone
 # Create your models here.
 
 class Region(models.Model):
