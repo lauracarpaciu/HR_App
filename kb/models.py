@@ -91,7 +91,11 @@ class Employee(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'pk':self.pk})           
-   
+    
+    @property
+    def file_url(self):
+        if self.file and hasattr(self.file, 'url'):
+            return self.file.url
 
 class Job_History(models.Model):
     jobs = models.ForeignKey(Job, on_delete=models.CASCADE)

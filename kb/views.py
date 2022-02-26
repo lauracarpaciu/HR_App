@@ -80,7 +80,7 @@ class EmployeeDetailView(DetailView):
     def get_object(self):
         obj = super().get_object()
         # Record the last accessed date
-        obj.last_accessed = timezone.now()
+        obj.last_accessed = timezone.utc
         obj.save()
         return obj
 
