@@ -81,6 +81,9 @@ class Employee(models.Model):
 
     class Meta:
         ordering = ["-first_name"]
+        constraints = [
+            models.CheckConstraint(check=models.Q(salary__gte=2500), name='salary_gte_2500'),
+        ]
 
     def __str__(self):
         return self.first_name

@@ -86,7 +86,7 @@ class EmployeeDetailView(DetailView):
 
 class EmployeeCreateView(LoginRequiredMixin, CreateView):
     model = Employee
-    fields = ['date_posted','content','file','first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
+    fields = '__all__' # fields
     success_url = reverse_lazy('post-create')
 
     def form_valid(self, form):
@@ -96,8 +96,9 @@ class EmployeeCreateView(LoginRequiredMixin, CreateView):
 
 class EmployeeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Employee
-    fields = ['date_posted','content','file','first_name','last_name','email','phone_number','hire_date','salary','departments','jobs','commission_pct']
-    success_url = reverse_lazy('post-update')
+    fields = '__all__' # fields
+    success_url = reverse_lazy('kb-home')
+    template_name = 'kb/update_form.html' # templete for updating
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -107,13 +108,15 @@ class EmployeeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         post = self.get_object()
         if self.request.user == post.author:
             return True
-        return False
-
-
+        return False 
 class EmployeeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Employee
-    success_url = 'post-delete'
     template_name = 'kb/post_confirm_delete.html'
+    success_url = reverse_lazy('kb-home')
+    
+    def form_valid(self, form):
+        form.author = self.request.user
+        return super().form_valid(form)
 
     def test_func(self):
         post = self.get_object()
