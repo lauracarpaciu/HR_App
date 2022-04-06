@@ -17,10 +17,15 @@ Technologies Used:
     django-crispy-forms
     Pillow
 
-![Opera Snapshot_2022-03-14_151319_127 0 0 1](https://user-images.githubusercontent.com/30430563/158180133-ae9b343b-7114-4a6f-ae3b-bebeea48aeb8.png)
-![Opera Snapshot_2022-03-14_151614_127 0 0 1](https://user-images.githubusercontent.com/30430563/158180209-89d0731d-fdc0-47da-a206-77e5089e59ef.png)
-![Opera Snapshot_2022-03-14_151630_127 0 0 1](https://user-images.githubusercontent.com/30430563/158180278-160060a8-f04e-438c-a991-6797754a65e1.png)
-![Opera Snapshot_2022-03-14_151647_127 0 0 1](https://user-images.githubusercontent.com/30430563/158180303-aec1b639-8338-4efb-baa6-6c2a80468d40.png)
-![Opera Snapshot_2022-03-14_151845_127 0 0 1](https://user-images.githubusercontent.com/30430563/158180326-9c6e57dd-2f8d-4359-bc33-ca789fc0931e.png)
-![Opera Snapshot_2022-03-14_151859_127 0 0 1](https://user-images.githubusercontent.com/30430563/158180349-e4363a63-5380-4c31-96a2-884f0862355b.png)
-![Opera Snapshot_2022-03-14_160958_127 0 0 1](https://user-images.githubusercontent.com/30430563/158189682-51032b8f-a431-4dc1-bdd7-214d044447fd.png)
+![Screenashot_2022-03-14_160958_127 0 0 1](https://user-images.githubusercontent.com/30430563/158189682-51032b8f-a431-4dc1-bdd7-214d044447fd.png)
+
+![Screenshot 2022-04-06 at 19-29-49 KB](https://user-images.githubusercontent.com/30430563/162023969-db9cc54a-48a3-4efd-b521-caeae4aa489d.png)
+
+![Screenshot 2022-04-06 at 19-29-35 KB](https://user-images.githubusercontent.com/30430563/162024040-dcfc94c7-d936-4772-b99c-2c5f21af15a9.png)
+![Screenshot 2022-04-06 at 19-29-11 KB - Logged out](https://user-images.githubusercontent.com/30430563/162024054-68fa2fff-b6cc-4bd7-b003-6c079a2628f3.png)
+![Screenshot 2022-04-06 at 19-28-48 KB](https://user-images.githubusercontent.com/30430563/162024061-a5fc1164-b1a9-4683-b8c4-fabadb41ce63.png)
+![Screenshot 2022-04-06 at 19-28-20 KB](https://user-images.githubusercontent.com/30430563/162024081-b6d77f49-2552-460a-8e8a-2844b06d2cbd.png)
+![Screenshot 2022-04-06 at 19-28-04 KB](https://user-images.githubusercontent.com/30430563/162024100-f763801e-a76d-47fe-be76-2dd359b971e5.png)
+![Screenshot 2022-04-06 at 19-26-09 KB - About KB](https://user-images.githubusercontent.com/30430563/162024107-8622b168-2350-4c6d-bb64-a8177efc5980.png)
+![Screenshot 2022-04-06 at 19-06-38 KB](https://user-images.githubusercontent.com/30430563/162024116-fe66d1d5-c944-47c9-8722-8a177d986ec2.png)
+![Screenshot 2022-04-06 at 19-05-36 KB](https://user-images.githubusercontent.com/30430563/162024141-0ff71d04-9865-4ec4-836f-4b315255a171.png)
