@@ -1,5 +1,7 @@
 
 from django.urls import path
+from django.urls import path
+from .views import generatePDF
 
 from .views import (
     EmployeeListView,
@@ -14,7 +16,7 @@ from .views import (
 from . import views
 
 urlpatterns = [
-
+    path('<int:id>/generatePDF/', views.generatePDF, name='generatePDF'),
     path('', EmployeeListView.as_view(), name='kb-home'),
     path('user/<str:username>', UserEmployeeListView.as_view(), name='user-posts'),
     path('post/<int:pk>/', EmployeeDetailView.as_view(), name='post-detail'),

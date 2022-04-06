@@ -1,3 +1,5 @@
+import datetime
+from msilib.schema import AdminExecuteSequence
 import os
 from django.db import models
 from django.contrib.auth.models import User
@@ -98,6 +100,9 @@ class Employee(models.Model):
         if self.file and hasattr(self.file, 'url'):
             return self.file.url
 
+    def was_published_recently(self):
+        return self.date_posted >= timezone.now() - datetime.timedelta(days=1)
+
 class Job_History(models.Model):
     jobs = models.ForeignKey(Job, on_delete=models.CASCADE)
     departments = models.ForeignKey(Department,on_delete=models.CASCADE)
@@ -110,5 +115,13 @@ class Job_History(models.Model):
 
     class Meta:
         ordering = ['start_date']   
+
+      
+
+
+
+
+
+
 
   
